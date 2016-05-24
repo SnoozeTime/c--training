@@ -2,6 +2,7 @@
 #include <iostream>
 #include "hashmap.hpp"
 #include <string>
+#include "graph.hpp"
 
 #define A 54059 /* a prime */
 #define B 76963 /* another prime */
@@ -20,10 +21,17 @@ struct StringHash {
 
 int main()
 {
-    HashMap<std::string, std::string, StringHash> map;
-    map.put("one", "two");
-    std::string value;
-    if (map.get("one", value)) {
-        std::cout << value << std::endl;
-    }
+    SGraph<std::string, int> graph;
+    graph.AddVertex("Washington");
+    graph.AddVertex("Paris");
+    graph.AddVertex("Tokyo");
+    graph.AddVertex("London");
+
+    graph.AddEdge(0, 1, 1);
+    graph.AddEdges(0, 2, 5);
+    graph.AddEdge(1, 2, 2);
+    graph.AddEdge(3, 1, 4);
+
+
+    graph.PrintGraph();
 }
