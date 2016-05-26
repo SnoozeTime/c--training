@@ -3,6 +3,7 @@
 #include "hashmap.hpp"
 #include <string>
 #include "graph.hpp"
+#include "binary_search_tree.hpp"
 
 #define A 54059 /* a prime */
 #define B 76963 /* another prime */
@@ -21,17 +22,21 @@ struct StringHash {
 
 int main()
 {
-    SGraph<std::string, int> graph;
-    graph.AddVertex("Washington");
-    graph.AddVertex("Paris");
-    graph.AddVertex("Tokyo");
-    graph.AddVertex("London");
+    Tree<int, std::string> tree;
+    tree.InsertNode(5, "Paris");
+    tree.InsertNode(2, "Londres");
+    tree.InsertNode(3, "Luxembourg");
+    tree.InsertNode(4, "Jean de la Fontaine city");
+    tree.InsertNode(15, "Tokyo");
+    tree.InsertNode(17, "Myougadani");
+    tree.InsertNode(9, "Hayama");
+    tree.InsertNode(8, "somewhere");
+    tree.InsertNode(1, "Else");
+    tree.InsertNode(10, "Ici et la");
 
-    graph.AddEdge(0, 1, 1);
-    graph.AddEdges(0, 2, 5);
-    graph.AddEdge(1, 2, 2);
-    graph.AddEdge(3, 1, 4);
-
-
-    graph.PrintGraph();
+    tree.PrintTree();
+    TreeNode<int, std::string>* res = tree.Search(15);
+    if (res) {
+        std::cout << "Found node. value is " << res->other_data << std::endl;
+    }
 }

@@ -11,6 +11,22 @@
 
     In SGraph. vertice and edges have values.
     in SGraph2, only edges have value.
+
+
+    SGraph<std::string, int> graph;
+    graph.AddVertex("Washington");
+    graph.AddVertex("Paris");
+    graph.AddVertex("Tokyo");
+    graph.AddVertex("London");
+
+    graph.AddEdge(0, 1, 1);
+    graph.AddEdges(0, 2, 5);
+    graph.AddEdge(1, 2, 2);
+    graph.AddEdge(3, 1, 4);
+
+
+    graph.PrintGraph();
+    
 */
 template<typename VV, typename EV>
 class SGraph
